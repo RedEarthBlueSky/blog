@@ -18,7 +18,8 @@ export const BlogProvider = ({ children }) => {
 
   return (
     <BlogContext.Provider 
-      value={{data: blogPosts, addBlogPost}}
+    //  data is the state variable, addBlogPost the updater
+      value={{data: blogPosts, addBlogPost, setBlogPosts}}
     >
       {children}
     </BlogContext.Provider>

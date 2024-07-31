@@ -9,14 +9,18 @@ const IndexScreen = () => {
   //  that has our current blogs and a way to change it in a 
   //  value={{state, update}} format, here is is 
   //  value={{data: blogPosts, addBlogPost}}
-  const { data, addBlogPost } = useContext(BlogContext)
-  console.log(data)
+  const { data, addBlogPost, setBlogPosts } = useContext(BlogContext)
   return (
     <View>
       <Text style={styles.H1}>Index Screen</Text>
       <Button 
         title='Add Post'
-        onPress={() => addBlogPost()}
+        onPress={addBlogPost}
+      />
+      <View style={{marginTop: 10}}></View>
+      <Button 
+        title='Reset Posts'
+        onPress={() => setBlogPosts([])}
       />
       <FlatList 
         data={data}
