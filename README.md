@@ -19,6 +19,8 @@ Action:  Object argument accepted by the reducer to update state.  Generally tak
 Props parent to immediate child
 Context parent to deeply nested child
 
+The job of the Blog Post Provider is to hand down an object that has our current blogs and a way to change it in a value={{state, update}} format, here is is value={{data: blogPosts, addBlogPost}}
+
 
 
 

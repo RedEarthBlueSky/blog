@@ -1,12 +1,28 @@
-import React, { createContext } from 'react'
+import React, { createContext, useState } from 'react'
+// import { blogPosts } from '../data'
 
 const BlogContext = createContext()
 
-//  accept a react components as an argument { children }
 export const BlogProvider = ({ children }) => {
+  const [blogPosts, setBlogPosts] = useState([])
+
+  const addBlogPost = () => {
+    setBlogPosts([
+      ...blogPosts, 
+      { 
+        title: `Blog Post #${blogPosts.length + 1}`, 
+        body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      }
+    ])
+  }
+
   return (
-    <BlogContext.Provider>
+    <BlogContext.Provider 
+      value={{data: blogPosts, addBlogPost}}
+    >
       {children}
     </BlogContext.Provider>
   )
 }
+
+export default BlogContext
