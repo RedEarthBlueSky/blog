@@ -1,10 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
+import styles from '../styles'
+
 
 const IndexScreen = () => {
   return (
     <View>
-      <Text>Index Screen</Text>
+      <Text style={styles.H1}>Index Screen</Text>
     </View>
   )
 }
