@@ -3,7 +3,7 @@ import React from 'react'
 import { createAppContainer } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
 import IndexScreen from './src/screens/IndexScreen'
-import { BlogProvider } from './src/context/BlogContext'
+import { Provider } from './src/context/BlogContext'
 
 const navigator = createStackNavigator(
   {
@@ -19,13 +19,12 @@ const navigator = createStackNavigator(
 
 const App = createAppContainer(navigator)
 
-//  blog provider is now wrapping our app to provide props to 
-//  deeply nested children of it and App
+
 export default () => {
   return (
-    <BlogProvider>
+    <Provider>
       <App />
-    </BlogProvider>
+    </Provider>
   )
 }
 
