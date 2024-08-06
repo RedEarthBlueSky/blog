@@ -17,6 +17,15 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     paddingHorizontal:10,
     paddingVertical:20,
+  },
+  //  headerRight TO styles
+  createBlogPost: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 5,
+    position: 'absolute', 
+    right: 5, 
+    top: 10,
   }
 });
 
