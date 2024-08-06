@@ -20,12 +20,46 @@ const styles = StyleSheet.create({
   },
   //  headerRight TO styles
   createBlogPost: {
-    flexDirection: 'row',
     alignItems: 'center',
+    flexDirection: 'row',
     padding: 5,
     position: 'absolute', 
     right: 5, 
     top: 10,
+  },
+  submitButton: {
+    alignItems: 'center',
+    alignSelf: 'center',
+    backgroundColor: 'blue',
+    borderRadius: 5,
+    height: 45,
+    justifyContent: 'center',
+    marginTop: 10,
+    width: '60%',
+  },
+  submitButtonText: {
+    color: 'white',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  createScreenInput: {
+    borderColor: 'black',
+    borderRadius: 5,
+    borderWidth: 1,
+    fontSize: 18,
+    marginHorizontal: 10,
+    marginVertical: 10,
+    padding: 10,
+  },
+  createScreenLabel: {
+    fontSize: 22,
+    // fontWeight: 'bold',
+    marginHorizontal: 10,
+  },
+  screenTitle: {
+    fontSize: 34,
+    marginVertical: 10,
+    marginLeft: 10,
   }
 });
 
