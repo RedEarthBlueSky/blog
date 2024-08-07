@@ -10,6 +10,9 @@ const styles = StyleSheet.create({
   H5: {fontSize:22},
   H6: {fontSize:18},
   P: {fontSize:14},
+  blogColumn: {
+    flexDirection: 'column',
+  },
   blogRow: {
     borderTopWidth: 1, 
     borderBottomWidth: 1, 
@@ -36,6 +39,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: 10,
     width: '60%',
+    //  shadow generator
+    shadowColor: '#000',
+    shadowOffset: {width:2, height:4},
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
+    elevation: 4,
   },
   submitButtonText: {
     color: 'white',
