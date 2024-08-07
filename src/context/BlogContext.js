@@ -19,8 +19,23 @@ const blogReducer = (state, action) => {
 }
 
 const addBlogPost = dispatch => {
-  return (title, content) => {
+  return (title, content, callback) => {
     dispatch({ type: 'add_blogpost', payload: {title: title, content: content}})
+    callback()
+  }
+}
+
+//  format of an async function that checks the data has been 
+//  recieved at the api and api updated, perhaps a token back before callback
+const addBlogPostAsync = dispatch => {
+  return async (title, content, callback) => {
+    try {
+      await axios.post('sometext', title, content)
+      dispatch({ type: 'add_blogpost', payload: {title: title, content: content}})
+      callback()
+    } catch(e) {
+      console.log('error: ', e)
+    }
   }
 }
 

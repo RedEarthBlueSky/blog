@@ -27,8 +27,9 @@ const CreateScreen = ({ navigation }) => {
         value={content}
       />
       <TouchableOpacity style={styles.submitButton} onPress={() => {
-        addBlogPost(title, content)
-        navigation.navigate('Index')
+        addBlogPost(title, content, () => {
+          navigation.navigate('Index')
+        })
       }}>
         <Text style={styles.submitButtonText}>Create Blog Post</Text>
       </TouchableOpacity>

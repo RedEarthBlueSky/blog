@@ -4,8 +4,10 @@ import styles from '../styles'
 import { Context } from '../context/BlogContext'
 
 const ShowScreen = ({ navigation }) => {
+  //  get the state list of all our blog posts
   const { state } = useContext(Context)
 
+  //  return one blog post based on the id
   const blogPost = state.find((blogPost) => {
     return blogPost.id === navigation.getParam('id')
   })
