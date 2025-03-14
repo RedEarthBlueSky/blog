@@ -3,12 +3,12 @@ import React from 'react'
 
 import { parentStyles } from '../styles/styles'
 
-const IndexScreen = () => {
+const ShowScreen = () => {
   return (
     <View>
-      <Text style={parentStyles.h2bold}>Index Screen</Text>
+      <Text style={parentStyles.h2bold}>Show Screen</Text>
     </View>
   )
 }
 
-export { IndexScreen }
+export { ShowScreen }
