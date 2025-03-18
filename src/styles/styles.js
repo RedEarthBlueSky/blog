@@ -14,6 +14,9 @@ const parentStyles = {
   italic: {fontStyle: 'italic'},
   p: {fontSize: em},
   pbold: {fontSize: em, fontWeight: 'bold'},
+  TOButton: {alignItems:'center',alignSelf:'center',backgroundColor:'#e31cad',
+    borderRadius:5,marginVertical:15, paddingHorizontal:8,paddingVertical:8,width:220,},
+  TOButtonText: {fontSize: 14, fontWeight: 'bold', color: '#fff'},
 }
 const listStyles = {
   ...parentStyles,
