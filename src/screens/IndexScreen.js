@@ -1,10 +1,10 @@
 import { View, Text, FlatList, TouchableOpacity } from 'react-native'
 import React, { useContext } from 'react'
-import BlogContext from '../context/BlogContext'
+import { Context as BlogContext } from '../context/BlogContext'
 import { parentStyles } from '../styles/styles'
 
 const IndexScreen = () => {
-  const { data, addBlogPost, clearBlogPosts } = useContext(BlogContext)
+  const { state, addBlogPost, clearBlogPosts } = useContext(BlogContext)
 
   return (
     <View style={{padding: 10}}>
@@ -24,7 +24,7 @@ const IndexScreen = () => {
       </TouchableOpacity>
       
       <FlatList 
-        data={data}
+        data={state}
         keyExtractor={(blogPost) => blogPost.title}
         renderItem={({ item, index }) => {
           return <Text style={parentStyles.h3bold}>{index + 1}. {item.title}</Text>
