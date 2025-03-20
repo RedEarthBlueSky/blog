@@ -14,34 +14,23 @@ const parentStyles = {
   italic: {fontStyle: 'italic'},
   p: {fontSize: em},
   pbold: {fontSize: em, fontWeight: 'bold'},
-  TOButton: {alignItems:'center',alignSelf:'center',backgroundColor:'#e31cad',
-    borderRadius:5,marginVertical:15, paddingHorizontal:8,paddingVertical:8,width:220,},
-  TOButtonText: {fontSize: 14, fontWeight: 'bold', color: '#fff'},
+  TOButton: {alignItems: 'center', flexDirection: 'row', alignSelf:'center', 
+    backgroundColor:'#e31cad', borderRadius:5, justifyContent: 'space-between', marginVertical:5, 
+    paddingLeft:8, paddingRight: 14, paddingVertical:4,width:'95%',},
+  TOButtonText: {fontSize: 16, fontWeight: 'bold', color: '#fff'},
+  TOButtonIcon: {fontSize: 18, fontWeight: 'bold'},
+  blogpost: {alignItems: 'center', flexDirection: 'row', alignSelf:'center', 
+    borderWidth: 1, borderColor: 'black',
+    borderRadius:5, justifyContent: 'space-between', marginVertical:5, 
+    paddingLeft:8, paddingRight: 20, paddingVertical:6,width:'95%',},
 }
 const listStyles = {
   ...parentStyles,
-  container: {
-    marginRight: 15,
-  },
-  image: {
-    borderRadius: 5,
-    height: 120,
-    width: 250,
-  },
-  listImage: {
-    borderRadius: 5,
-    height: 120,
-    margin: 10,
-    width: 250,
-  },
-  resultsListContainer: {
-    marginBottom: 15,
-  },
-  rowContainer: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  }
+  container: { marginRight: 15 },
+  image: { borderRadius: 5, height: 120, width: 250 },
+  listImage: { borderRadius: 5, height: 120, margin: 10, width: 250,},
+  resultsListContainer: { marginBottom: 15 },
+  rowContainer: { alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between' }
 }
 const wrapperStyles = {
   wrapper: {
