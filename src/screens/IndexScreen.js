@@ -5,9 +5,9 @@ import { Feather } from '@expo/vector-icons'
 import { parentStyles } from '../styles/styles'
 const { TOButton, h3bold, TOButtonText, TOButtonIcon, blogpost } = parentStyles
 
-const IndexScreen = () => {
-  const { state, addBlogPost, clearBlogPosts } = useContext(BlogContext)
-  const buttonData = [{ title: 'Add Blog Post', action: addBlogPost, }, { title: 'Clear Blog Posts', action: clearBlogPosts, },]
+const IndexScreen = ({navigation}) => {
+  const { state, addBlogPost, clearBlogPosts, deleteBlogPost } = useContext(BlogContext)
+  const buttonData = [{title: 'Add Blog Post', action: addBlogPost},{title: 'Clear Blog Posts', action: clearBlogPosts}]
 
   return (
     <View style={{padding: 10}}>
@@ -28,10 +28,14 @@ const IndexScreen = () => {
         keyExtractor={(blogPost) => blogPost.title}
         renderItem={({ item, index }) => {
           return (
-            <View style={blogpost}>
-              <Text style={h3bold}>{index + 1}. {item.title} - {item.id}</Text>
-              <Feather style={TOButtonIcon} name='trash'/>
-            </View>
+            <TouchableOpacity onPress={() => navigation.navigate('Show')}>
+              <View style={blogpost}>
+                <Text style={h3bold}>{index + 1}. {item.title} - {item.id}</Text>
+                <TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
+                  <Feather style={TOButtonIcon} name='trash'/>
+                </TouchableOpacity>
+              </View>
+            </TouchableOpacity>
           )
         }}
       />
