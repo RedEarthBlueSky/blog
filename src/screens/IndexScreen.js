@@ -28,10 +28,14 @@ const IndexScreen = ({navigation}) => {
         keyExtractor={(blogPost) => blogPost.title}
         renderItem={({ item, index }) => {
           return (
-            <TouchableOpacity onPress={() => navigation.navigate('Show')}>
+            <TouchableOpacity 
+              onPress={() => navigation.navigate('Show', { item: item })}>
               <View style={blogpost}>
                 <Text style={h3bold}>{index + 1}. {item.title} - {item.id}</Text>
-                <TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
+                <TouchableOpacity 
+                  style={{width: 50, alignItems: 'center' }} 
+                  onPress={() => deleteBlogPost(item.id)}
+                >
                   <Feather style={TOButtonIcon} name='trash'/>
                 </TouchableOpacity>
               </View>
