@@ -1,13 +1,32 @@
 import { View, Text, FlatList, TouchableOpacity } from 'react-native'
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Context as BlogContext } from '../context/BlogContext'
 import { Feather } from '@expo/vector-icons'
-import { parentStyles } from '../styles/styles'
-const { TOButton, h3bold, TOButtonText, TOButtonIcon, blogpost } = parentStyles
+import { parentStyles as styles } from '../styles/styles'
 
 const IndexScreen = ({navigation}) => {
   const { state, addBlogPost, clearBlogPosts, deleteBlogPost } = useContext(BlogContext)
-  const buttonData = [{title: 'Add Blog Post', action: addBlogPost},{title: 'Clear Blog Posts', action: clearBlogPosts}]
+  const buttonData = [
+    {title: 'Add Blog Post', action: addBlogPost},
+    {title: 'Clear Blog Posts', action: clearBlogPosts},
+  ]
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <TouchableOpacity 
+          style={{ 
+            alignItems: 'baseline', 
+            flexDirection: 'row',
+            justifyContent: 'space-evenly', 
+            width: 150,}}
+          onPress={() => {navigation.navigate('Create')}}
+        >
+          <Text style={{color: 'white', fontWeight: 'bold', fontSize: 20}}>Create Blog</Text>
+          <Feather name='plus' size={30} color='white'/>
+        </TouchableOpacity>
+      )
+    })
+  }, [navigation])
 
   return (
     <View style={{padding: 10}}>
@@ -16,9 +35,9 @@ const IndexScreen = ({navigation}) => {
         keyExtractor={(buttonData) => buttonData.title}
         renderItem={({ item, index }) => {
           return (
-            <View style={TOButton}>
-              <TouchableOpacity style={TOButton} onPress={item.action}>
-                <Text style={TOButtonText}>{item.title}</Text>
+            <View style={styles.TOButton}>
+              <TouchableOpacity style={styles.TOButton} onPress={item.action}>
+                <Text style={styles.TOButtonText}>{item.title}</Text>
               </TouchableOpacity>
             </View>
         )}}
@@ -30,13 +49,13 @@ const IndexScreen = ({navigation}) => {
           return (
             <TouchableOpacity 
               onPress={() => navigation.navigate('Show', { item: item })}>
-              <View style={blogpost}>
-                <Text style={h3bold}>{index + 1}. {item.title} - {item.id}</Text>
+              <View style={styles.blogpost}>
+                <Text style={styles.h3bold}>{index + 1}. {item.title} - {item.id}</Text>
                 <TouchableOpacity 
                   style={{width: 50, alignItems: 'center' }} 
                   onPress={() => deleteBlogPost(item.id)}
                 >
-                  <Feather style={TOButtonIcon} name='trash'/>
+                  <Feather style={styles.TOButtonIcon} name='trash'/>
                 </TouchableOpacity>
               </View>
             </TouchableOpacity>

@@ -15,7 +15,8 @@ const ShowScreen = ({ route }) => {
   return (
     <View style={{padding: 10}}>
       <Text style={parentStyles.h2bold}>Show Screen</Text>
-      <Text style={parentStyles.h3bold}>{title}, {id}</Text>
+      <Text style={parentStyles.h3bold}>Title:  {title}</Text>
+      <Text style={parentStyles.h3bold}>ID:  {id}</Text>
     </View>
   )
 }
