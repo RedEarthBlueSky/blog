@@ -11,19 +11,20 @@ const Stack = createStackNavigator()
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Index'>
+      <Stack.Navigator 
+        initialRouteName='Index'
+        screenOptions={{ 
+          title: "Blog List",
+          headerStyle: {
+            backgroundColor: '#e31cad',
+          },
+          headerTintColor: '#fff', // adjusts the title text color
+          headerTitleStyle: { fontWeight: 'bold', fontSize: 20, },
+        }}
+      >
         <Stack.Screen name="Create" component={CreateScreen} />
         <Stack.Screen name="Edit" component={EditScreen} />
-        <Stack.Screen name="Index" component={IndexScreen} 
-          options={{ 
-            title: "Blog List",
-            headerStyle: {
-              backgroundColor: '#e31cad',
-            },
-            headerTintColor: '#fff', // adjusts the title text color
-            headerTitleStyle: { fontWeight: 'bold', fontSize: 20, },
-          }}
-        />
+        <Stack.Screen name="Index" component={IndexScreen} />
         <Stack.Screen name="Show" component={ShowScreen} />
       </Stack.Navigator>
     </NavigationContainer>

@@ -19,10 +19,16 @@ const parentStyles = {
     paddingLeft:8, paddingRight: 14, paddingVertical:4,width:'95%',},
   TOButtonText: {fontSize: 16, fontWeight: 'bold', color: '#fff'},
   TOButtonIcon: {fontSize: 22, fontWeight: 'bold'},
-  blogpost: {alignItems: 'center', flexDirection: 'row', alignSelf:'center', 
+  blogpost: {alignItems: '', flexDirection: 'column', alignSelf:'center', 
     borderWidth: 1, borderColor: 'black',
     borderRadius:5, justifyContent: 'space-between', marginVertical:5, 
     paddingLeft:8, paddingRight: 20, paddingVertical:6,width:'95%',},
+  headerLink: { alignItems: 'baseline', flexDirection: 'row', justifyContent: 'space-evenly', width: 150,},
+  HLText: {color: 'white', fontWeight: 'bold', fontSize: 20},
+  input: { fontSize: 18, borderWidth: 1, height: 30, padding: 0, borderRadius: 5, 
+    borderColor: 'black', width: '70%', paddingLeft: 5,},
+  inputWrapper: {flexDirection: 'row', alignItems: 'baseline',marginBottom: 5, justifyContent: 'space-between'},
+
 }
 const listStyles = {
   ...parentStyles,

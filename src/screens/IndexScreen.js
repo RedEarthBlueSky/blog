@@ -6,22 +6,14 @@ import { parentStyles as styles } from '../styles/styles'
 
 const IndexScreen = ({navigation}) => {
   const { state, addBlogPost, clearBlogPosts, deleteBlogPost } = useContext(BlogContext)
-  const buttonData = [
-    {title: 'Add Blog Post', action: addBlogPost},
-    {title: 'Clear Blog Posts', action: clearBlogPosts},
-  ]
+  //  create the RHS Create Blog button
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <TouchableOpacity 
-          style={{ 
-            alignItems: 'baseline', 
-            flexDirection: 'row',
-            justifyContent: 'space-evenly', 
-            width: 150,}}
+        <TouchableOpacity style={styles.headerLink} 
           onPress={() => {navigation.navigate('Create')}}
         >
-          <Text style={{color: 'white', fontWeight: 'bold', fontSize: 20}}>Create Blog</Text>
+          <Text style={styles.HLText}>Create Blog</Text>
           <Feather name='plus' size={30} color='white'/>
         </TouchableOpacity>
       )
@@ -31,18 +23,6 @@ const IndexScreen = ({navigation}) => {
   return (
     <View style={{padding: 10}}>
       <FlatList 
-        data={buttonData}
-        keyExtractor={(buttonData) => buttonData.title}
-        renderItem={({ item, index }) => {
-          return (
-            <View style={styles.TOButton}>
-              <TouchableOpacity style={styles.TOButton} onPress={item.action}>
-                <Text style={styles.TOButtonText}>{item.title}</Text>
-              </TouchableOpacity>
-            </View>
-        )}}
-      />
-      <FlatList 
         data={state}
         keyExtractor={(blogPost) => blogPost.title}
         renderItem={({ item, index }) => {
@@ -50,14 +30,18 @@ const IndexScreen = ({navigation}) => {
             <TouchableOpacity 
               onPress={() => navigation.navigate('Show', { item: item })}>
               <View style={styles.blogpost}>
-                <Text style={styles.h3bold}>{index + 1}. {item.title} - {item.id}</Text>
-                <TouchableOpacity 
-                  style={{width: 50, alignItems: 'center' }} 
-                  onPress={() => deleteBlogPost(item.id)}
-                >
-                  <Feather style={styles.TOButtonIcon} name='trash'/>
-                </TouchableOpacity>
+                <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+                  <Text style={styles.h3bold}>{index + 1}. {item.title} - {item.id}</Text>
+                  <TouchableOpacity 
+                    style={{width: 50, alignItems: 'center' }} 
+                    onPress={() => deleteBlogPost(item.id)}
+                  >
+                    <Feather style={styles.TOButtonIcon} name='trash'/>
+                  </TouchableOpacity>
+                </View>
+                <Text style={styles.h3bold}>{item.content}</Text>
               </View>
+              
             </TouchableOpacity>
           )
         }}
